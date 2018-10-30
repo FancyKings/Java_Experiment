@@ -1,8 +1,7 @@
 import figure.*;
-import javafx.scene.shape.TriangleMesh;
-
 import java.util.*;
 import static java.lang.System.*;
+
 public class Main{
     public static void main(String[] args) {
         Scanner cin = new Scanner(in);
