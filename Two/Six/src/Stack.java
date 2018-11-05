@@ -4,8 +4,6 @@ class Stack {
 
     private int head, max_len;
     private int[] dic;
-    /* 使用nullptr 表示栈为空的非法访问 */
-    private int nullptr = -0x3f3f3f3f;
 
     Stack() {
         max_len = 500;
