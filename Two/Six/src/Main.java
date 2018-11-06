@@ -15,10 +15,11 @@ public class Main {
         while (!sk.isEmpty()) {
             out.print(sk.pop());
         }
+
         /*
-         * 断言抛出异常测试，运行参数需加入 -ea
-         * out.println(sk.pop());
-         * */
+        *   断言抛出异常测试，运行参数需加入 -ea
+        */
+        // out.println(sk.pop());
         out.println();
     }
 }
