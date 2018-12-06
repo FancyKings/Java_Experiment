@@ -1,7 +1,5 @@
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +7,6 @@ import java.util.Scanner;
 
 /**
  * @author Fancyking
- * @version 1.0
- * 只过了第一个测试点，并且和Sample Output不同，待解决
  */
 public class Main {
 
@@ -215,23 +211,20 @@ class Employee extends Person {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null) {
+    public boolean equals(Object obj) {
+        if (obj == null) {
             return false;
         }
-        if (o instanceof Employee && super.equals(o)) {
-            return ((Employee) o).company.equals(this.company) && isEquals(salary);
+        if (obj instanceof Employee) {
+            Employee t = (Employee) obj;
+            if (super.equals(obj)) {
+                DecimalFormat p = new DecimalFormat("#.#");
+                return t.company.equals(company) && p.format(t.salary).equals(p.format(salary));
+            }
+            return false;
         } else {
             return false;
         }
-    }
-
-    private boolean isEquals(double os) {
-        DecimalFormat formats = new DecimalFormat("#.#");
-        BigDecimal osf = new BigDecimal(String.valueOf(os));
-        BigDecimal tf = new BigDecimal(String.valueOf(this.salary));
-        formats.setRoundingMode(RoundingMode.HALF_UP);
-        return formats.format(osf).equals(formats.format(tf));
     }
 
 }
