@@ -2,7 +2,7 @@ import java.io.*;
 import java.text.DecimalFormat;
 
 /**
- * Loading~
+ * 知道BUG在哪里了，应该是输入0，什么都不输出，改了这个地方，第二个样例就过了
  *
  * @author Fancyking
  */
@@ -26,10 +26,12 @@ public class Main {
             }
             ans += (double) inputNum;
         }
-        out.println(zCount);
-        out.println(fCount);
-        out.println(new DecimalFormat("0").format(ans));
-        out.println(ans / (zCount + fCount));
+        if (zCount + fCount != 0) {
+            out.println(zCount);
+            out.println(fCount);
+            out.println(new DecimalFormat("0").format(ans));
+            out.println(ans / (zCount + fCount));
+        }
     }
 
 }
