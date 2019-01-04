@@ -1,11 +1,12 @@
 import java.util.Scanner;
 
 /**
- * 又是一个没看明白要干啥的，这些函数题目想干啥？
+ * 不能运行，但是能A
  *
  * @author Fancyking
  */
 public class Main {
+
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -14,13 +15,23 @@ public class Main {
             resource = new Resource();
             resource.open(sc.nextLine());
             /*这里放置你的答案*/
-            sc.close();
-
-        } catch (RuntimeException e) {
-
+            System.out.println("resource open success");
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            try {
+                resource.close();
+                System.out.println("resource release success");
+            } catch (RuntimeException e) {
+                System.out.println(e);
+            }
         }
-        /*代码结束部分*/
+
+        sc.close();
 
     }
+    /*代码结束部分*/
+
+}
 
 }
